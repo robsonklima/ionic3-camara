@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Vereador
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div padding>
+    <ion-segment [(ngModel)]="segment">
+      <ion-segment-button value="identidade">
+        Identidade
+      </ion-segment-button>
+      <ion-segment-button value="tendencia">
+        Tendência
+      </ion-segment-button>
+      <ion-segment-button value="assiduidade">
+        Assiduidade
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  
+  <div [ngSwitch]="segment">
+    <ion-list *ngSwitchCase="'identidade'">
+      <ion-item ion-item>
+        Nome
+        <ion-note item-end>{{ vereador.vereador }}</ion-note>
+      </ion-item>
+
+      <ion-item ion-item>
+        Partido
+        <ion-note item-end>{{ vereador.partido }}</ion-note>
+      </ion-item>
+    </ion-list>
+  
+    <ion-list *ngSwitchCase="'tendencia'">
+      <ion-item ion-item>
+        Nenhuma tendência computada
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'assiduidade'">
+      <ion-item ion-item *ngIf="assiduidades?.length == 0">
+        Nenhum registro
+      </ion-item>
+
+      <ion-list>
+        <ion-item *ngFor="let assiduidade of assiduidades">
+          {{ assiduidade.presenca }}
+          <ion-note item-end>
+            {{ assiduidade.contagem }}
+          </ion-note>
+        </ion-item>
+      </ion-list>
+    </ion-list>
+  </div>
+</ion-content>

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Vereadores
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="silver-bg">
+  <ion-list>
+    <ion-searchbar (ionInput)="filterVereadores($event)"></ion-searchbar>
+
+    <button ion-item *ngFor="let vereador of vereadores" (click)="onLoadVereador(vereador)">
+      {{ vereador.vereador }}
+      <ion-note item-end>
+        {{ vereador.partido }}
+      </ion-note>
+    </button>
+
+    <ion-item *ngIf="vereadores.length == 0">
+      Nenhum registro encontrado
+    </ion-item>
+  </ion-list>
+</ion-content>
