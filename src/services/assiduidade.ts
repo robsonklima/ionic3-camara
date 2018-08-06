@@ -4,7 +4,6 @@ import 'rxjs/Rx';
 
 import { Config } from './../config/config';
 import { Observable } from "rxjs/Observable";
-import { Vereador } from "../models/vereador";
 
 @Injectable()
 export class AssiduidadeService {

@@ -10,12 +10,19 @@ import { VereadoresPage } from '../pages/vereadores/vereadores';
 import { VereadorPage } from '../pages/vereadores/vereador';
 import { VereadorService } from '../services/vereador';
 import { AssiduidadeService } from '../services/assiduidade';
+import { HomePage } from '../pages/home/home';
+import { SessoesPage } from '../pages/sessoes/sessoes';
+import { SessaoService } from '../services/sessao';
+import { SessaoPage } from '../pages/sessoes/sessao';
 
 @NgModule({
   declarations: [
     MyApp,
     VereadoresPage,
-    VereadorPage
+    VereadorPage,
+    HomePage,
+    SessoesPage,
+    SessaoPage
   ],
   imports: [
     BrowserModule,
@@ -26,14 +33,18 @@ import { AssiduidadeService } from '../services/assiduidade';
   entryComponents: [
     MyApp,
     VereadoresPage,
-    VereadorPage
+    VereadorPage,
+    HomePage,
+    SessoesPage,
+    SessaoPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     VereadorService,
-    AssiduidadeService
+    AssiduidadeService,
+    SessaoService
   ]
 })
 export class AppModule {}
