@@ -12,6 +12,10 @@
 
     <button ion-item *ngFor="let sessao of sessoes" (click)="onLoadSessao(sessao._id)">
       {{ sessao.proposicao }}
+
+      <ion-note item-end>
+          {{ sessao.categorias.length ? "!" : 0 }}
+      </ion-note>
     </button>
 
     <ion-item *ngIf="sessoes.length == 0">

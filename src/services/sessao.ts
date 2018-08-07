@@ -12,8 +12,14 @@ export class SessaoService {
     private http: Http
   ) {}
 
-  getAll(): Observable<any[]> {
+  getSessoes(): Observable<any[]> {
     return this.http.get(Config.API_URL + 'sessoes')
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json()));
+  }
+
+  getVereadores(): Observable<any[]> {
+    return this.http.get(Config.API_URL + 'sessoes/vereadores')
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json()));
   }
@@ -23,4 +29,16 @@ export class SessaoService {
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json()));
   }
+
+  getComparecimentos(nomeVereador: string): Observable<any[]> {
+    return this.http.get(Config.API_URL + 'sessoes/comparecimentos/' + nomeVereador)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json()));
+  }
+
+  getTendencias(nomeVereador: string): Observable<any[]> {
+    return this.http.get(Config.API_URL + 'sessoes/tendencias/' + nomeVereador)
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json()));
+  }  
 }

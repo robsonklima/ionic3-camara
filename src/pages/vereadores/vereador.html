@@ -35,8 +35,13 @@
     </ion-list>
   
     <ion-list *ngSwitchCase="'tendencia'">
-      <ion-item ion-item>
-        Nenhuma tendência computada
+      <ion-item ion-item *ngIf="tendencias?.length == 0">
+        Nenhum registro
+      </ion-item>
+
+      <ion-item *ngFor="let tendencia of tendencias">
+        <h4>{{ tendencia.categorias[0] }}</h4>
+        <p>O vereador aprovou {{ tendencia.contagem }} sessões desta categoria</p>
       </ion-item>
     </ion-list>
 
@@ -48,6 +53,7 @@
       <ion-list>
         <ion-item *ngFor="let assiduidade of assiduidades">
           {{ assiduidade.presenca }}
+
           <ion-note item-end>
             {{ assiduidade.contagem }}
           </ion-note>

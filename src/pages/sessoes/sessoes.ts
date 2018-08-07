@@ -25,9 +25,9 @@ export class SessoesPage {
 
   getSessoes(): Promise<Sessao[]> {
     return new Promise((resolve, reject) => {
-      this.sessaoService.getAll().subscribe((sessoes) => { 
+      this.sessaoService.getSessoes().subscribe((sessoes) => { 
         this.sessoes = sessoes;
-
+        
         resolve(sessoes);
       }, e => {
         reject();

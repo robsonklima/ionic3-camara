@@ -8,8 +8,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { VereadoresPage } from '../pages/vereadores/vereadores';
 import { VereadorPage } from '../pages/vereadores/vereador';
-import { VereadorService } from '../services/vereador';
-import { AssiduidadeService } from '../services/assiduidade';
 import { HomePage } from '../pages/home/home';
 import { SessoesPage } from '../pages/sessoes/sessoes';
 import { SessaoService } from '../services/sessao';
@@ -42,8 +40,6 @@ import { SessaoPage } from '../pages/sessoes/sessao';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    VereadorService,
-    AssiduidadeService,
     SessaoService
   ]
 })

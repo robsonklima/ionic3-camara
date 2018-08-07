@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 
 import { Vereador } from '../../models/vereador';
 import { VereadorPage } from './vereador';
-import { VereadorService } from '../../services/vereador';
+import { SessaoService } from '../../services/sessao';
 
 @Component({
   templateUrl: 'vereadores.html'
@@ -13,7 +13,7 @@ export class VereadoresPage {
 
   constructor(
     private navCtrl: NavController,
-    private vereadorService: VereadorService
+    private sessaoService: SessaoService
   ) {}
 
   ionViewDidLoad() {
@@ -26,7 +26,7 @@ export class VereadoresPage {
 
   getVereadores(): Promise<Vereador[]> {
     return new Promise((resolve, reject) => {
-      this.vereadorService.getAll().subscribe((vereadores) => { 
+      this.sessaoService.getVereadores().subscribe((vereadores) => { 
         this.vereadores = vereadores;
 
         resolve(vereadores);
