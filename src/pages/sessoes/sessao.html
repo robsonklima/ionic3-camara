@@ -70,7 +70,7 @@
       </ion-list>
     
       <ion-list *ngSwitchCase="'categorias'">
-        <ion-item ion-item *ngIf="categorias?.length == 0">
+        <ion-item ion-item *ngIf="sessao?.categorias?.length == 0 || !sessao?.categorias">
           Nenhuma categoria
         </ion-item>
 

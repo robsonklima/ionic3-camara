@@ -13,6 +13,10 @@
     <button ion-item *ngFor="let sessao of sessoes" (click)="onLoadSessao(sessao._id)">
       {{ sessao.proposicao }}
     </button>
+
+    <ion-item *ngIf="sessoes.length == 0">
+      Nenhum registro encontrado
+    </ion-item>
   </ion-list>
 </ion-content>
   
