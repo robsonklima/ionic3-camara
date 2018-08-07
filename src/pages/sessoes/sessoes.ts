@@ -12,7 +12,7 @@ export class SessoesPage {
 
   constructor(
     private navCtrl: NavController,
-    private sessaoService: SessaoService
+    private sessaoService: SessaoService,
   ) {}
 
   ionViewDidEnter() {
