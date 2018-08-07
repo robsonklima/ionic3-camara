@@ -12,6 +12,7 @@ import { HomePage } from '../pages/home/home';
 import { SessoesPage } from '../pages/sessoes/sessoes';
 import { SessaoService } from '../services/sessao';
 import { SessaoPage } from '../pages/sessoes/sessao';
+import { ComparecimentosPage } from '../pages/comparecimentos/comparecimentos';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SessaoPage } from '../pages/sessoes/sessao';
     VereadorPage,
     HomePage,
     SessoesPage,
-    SessaoPage
+    SessaoPage,
+    ComparecimentosPage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { SessaoPage } from '../pages/sessoes/sessao';
     VereadorPage,
     HomePage,
     SessoesPage,
-    SessaoPage
+    SessaoPage,
+    ComparecimentosPage
   ],
   providers: [
     StatusBar,

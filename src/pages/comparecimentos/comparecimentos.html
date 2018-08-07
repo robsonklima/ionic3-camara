@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Sessões
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="silver-bg">
+  <ion-list>
+    <ion-searchbar (ionInput)="filterComparecimentos($event)"></ion-searchbar>
+
+    <ion-item *ngFor="let comparecimento of comparecimentos">
+      <h4>{{ comparecimento.vereador }}</h4>
+      <p>
+        Presenças: {{ comparecimento.presencas }} &#8226; 
+        Ausências: {{ comparecimento.ausencias }}
+      </p>
+    </ion-item>
+
+    <ion-item *ngIf="comparecimentos.length == 0">
+      Nenhum registro encontrado
+    </ion-item>
+  </ion-list>
+</ion-content>

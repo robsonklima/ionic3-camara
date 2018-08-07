@@ -27,7 +27,7 @@ export class VereadorPage {
 
   private getComparecimentos(): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.sessaoService.getComparecimentos(this.vereador.vereador).subscribe((c) => {
+      this.sessaoService.getComparecimentosPorVereador(this.vereador.vereador).subscribe((c) => {
         this.assiduidades = c;
         resolve(c);
       }, error => {

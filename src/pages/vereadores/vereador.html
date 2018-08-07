@@ -41,7 +41,10 @@
 
       <ion-item *ngFor="let tendencia of tendencias">
         <h4>{{ tendencia.categorias[0] }}</h4>
-        <p>O vereador aprovou {{ tendencia.contagem }} sessões desta categoria</p>
+        <p>
+          Votou a favor de {{ tendencia.contagem }} {{ (tendencia.contagem == 1) ? "sessão" : "sessões" }} 
+          desta categoria
+        </p>
       </ion-item>
     </ion-list>
 
