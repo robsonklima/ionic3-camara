@@ -10,7 +10,7 @@
     <div padding>
       <ion-segment [(ngModel)]="segment">
         <ion-segment-button value="info">
-          Identidade
+          Informações
         </ion-segment-button>
         <ion-segment-button value="categorias">
           Categorias
@@ -29,13 +29,28 @@
         </ion-item>
 
         <ion-item>
+          Autoria
+          <ion-note item-end>{{ sessao?.autoria }}</ion-note>
+        </ion-item>
+
+        <ion-item>
           Votos
           <ion-note item-end>{{ sessao?.votos?.length }}</ion-note>
         </ion-item>
 
         <ion-item>
-          Autoria
-          <ion-note item-end>{{ sessao?.autoria }}</ion-note>
+          Sim
+          <ion-note item-end>{{ sessao?.sim }}</ion-note>
+        </ion-item>
+
+        <ion-item>
+          Não
+          <ion-note item-end>{{ sessao?.nao }}</ion-note>
+        </ion-item>
+
+        <ion-item>
+          Abstenções
+          <ion-note item-end>{{ sessao?.abstencoes }}</ion-note>
         </ion-item>
 
         <ion-item>
@@ -47,18 +62,21 @@
           Término
           <ion-note item-end>{{ sessao?.horarioTermino }}</ion-note>
         </ion-item>
+
+        <ion-item>
+          Resultado
+          <ion-note item-end>{{ sessao?.resultado }}</ion-note>
+        </ion-item>
       </ion-list>
     
       <ion-list *ngSwitchCase="'categorias'">
-        <ion-item ion-item>
+        <ion-item ion-item *ngIf="categorias?.length == 0">
           Nenhuma categoria
         </ion-item>
 
         <ion-item *ngFor="let categoria of sessao?.categorias">
-          {{ categoria?.nome }}
-          <ion-note item-end>
-              {{ categoria?.confianca }}
-          </ion-note>
+          <h4>{{ categoria.nome }}</h4>
+          <p>Acuracidade: {{ categoria.confianca }}</p>
         </ion-item>
       </ion-list>
     </div>

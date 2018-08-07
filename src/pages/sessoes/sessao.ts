@@ -27,9 +27,6 @@ export class SessaoPage {
       this.sessaoService.getById(this.id).subscribe((sessao) => { 
         this.sessao = sessao;
 
-        console.log(sessao);
-        
-
         resolve(sessao);
       }, e => {
         reject();

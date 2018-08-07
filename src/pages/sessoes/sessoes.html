@@ -1,18 +1,18 @@
 <ion-header>
-    <ion-navbar>
-      <ion-title>
-        Sessões
-      </ion-title>
-    </ion-navbar>
-  </ion-header>
-  
-  <ion-content class="silver-bg">
-    <ion-list>
-      <ion-searchbar (ionInput)="filterSessoes($event)"></ion-searchbar>
+  <ion-navbar>
+    <ion-title>
+      Sessões
+    </ion-title>
+  </ion-navbar>
+</ion-header>
 
-      <button ion-item *ngFor="let sessao of sessoes" (click)="onLoadSessao(sessao._id)">
-        {{ sessao.proposicao }}
-      </button>
-    </ion-list>
-  </ion-content>
+<ion-content class="silver-bg">
+  <ion-list>
+    <ion-searchbar (ionInput)="filterSessoes($event)"></ion-searchbar>
+
+    <button ion-item *ngFor="let sessao of sessoes" (click)="onLoadSessao(sessao._id)">
+      {{ sessao.proposicao }}
+    </button>
+  </ion-list>
+</ion-content>
   
