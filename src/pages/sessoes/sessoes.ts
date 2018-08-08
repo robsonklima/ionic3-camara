@@ -28,7 +28,7 @@ export class SessoesPage {
       }, e => {
         loader.dismiss();
       });
-    }, 1000);
+    }, 600);
   }
 
   onLoadSessao(id: string) {

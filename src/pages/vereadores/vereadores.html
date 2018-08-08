@@ -8,7 +8,7 @@
 
 <ion-content class="silver-bg">
   <ion-list>
-    <ion-searchbar (ionInput)="filterVereadores($event)"></ion-searchbar>
+    <ion-searchbar (ionInput)="filterVereadores($event)" placeholder="Pesquisar"></ion-searchbar>
 
     <button ion-item *ngFor="let vereador of vereadores" (click)="onLoadVereador(vereador)">
       {{ vereador.vereador }}

@@ -29,7 +29,7 @@ export class VereadoresPage {
       }, e => {
         loader.dismiss();
       });
-    }, 1000);
+    }, 600);
   }
 
   onLoadVereador(vereador: Vereador) {

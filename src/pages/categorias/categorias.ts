@@ -25,7 +25,7 @@ export class CategoriasPage {
       }, e => {
         loader.dismiss();
       });
-    }, 1000);
+    }, 600);
   }
 
   getCategorias(): Promise<any[]> {

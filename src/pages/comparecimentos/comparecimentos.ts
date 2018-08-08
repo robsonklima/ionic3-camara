@@ -25,7 +25,7 @@ export class ComparecimentosPage {
       }, e => {
         loader.dismiss();
       });
-    }, 1000);
+    }, 600);
   }
 
   getComparecimentos(): Promise<any[]> {

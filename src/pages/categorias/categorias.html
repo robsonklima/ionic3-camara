@@ -8,7 +8,7 @@
 
 <ion-content class="silver-bg">
   <ion-list>
-    <ion-searchbar (ionInput)="filterCategorias($event)"></ion-searchbar>
+    <ion-searchbar (ionInput)="filterCategorias($event)" placeholder="Pesquisar"></ion-searchbar>
 
     <ion-item text-wrap *ngFor="let categoria of categorias">
       <h4>{{ categoria.categoria }}</h4>

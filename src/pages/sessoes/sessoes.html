@@ -8,13 +8,13 @@
 
 <ion-content class="silver-bg">
   <ion-list>
-    <ion-searchbar (ionInput)="filterSessoes($event)"></ion-searchbar>
+    <ion-searchbar (ionInput)="filterSessoes($event)" placeholder="Pesquisar"></ion-searchbar>
 
     <button ion-item *ngFor="let sessao of sessoes" (click)="onLoadSessao(sessao._id)">
       {{ sessao.proposicao }}
 
       <ion-note item-end>
-          {{ sessao.categorias.length ? "-" : "" }}
+          {{ sessao.categorias.length ? "&#8226;" : "" }}
       </ion-note>
     </button>
 
