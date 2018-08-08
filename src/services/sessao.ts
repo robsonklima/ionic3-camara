@@ -36,6 +36,12 @@ export class SessaoService {
       .catch((error: any) => Observable.throw(error.json()));
   }
 
+  getCategorias(): Observable<any[]> {
+    return this.http.get(Config.API_URL + 'sessoes/categorias')
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json()));
+  }
+
   getComparecimentosPorVereador(nomeVereador: string): Observable<any[]> {
     return this.http.get(Config.API_URL + 'sessoes/comparecimentos/' + nomeVereador)
       .map((res: Response) => res.json())
@@ -46,5 +52,5 @@ export class SessaoService {
     return this.http.get(Config.API_URL + 'sessoes/tendencias/' + nomeVereador)
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw(error.json()));
-  }  
+  }
 }

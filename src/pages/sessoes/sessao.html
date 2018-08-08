@@ -84,8 +84,16 @@
       </ion-list>
 
       <ion-list *ngSwitchCase="'entidades'">
-        <ion-item ion-item>
+        <ion-item ion-item *ngIf="sessao?.entidades?.length == 0 || !sessao?.entidades">
           Nenhuma entidade
+        </ion-item>
+
+        <ion-item *ngFor="let entidade of sessao?.entidades">
+          {{ entidade.nome }}
+
+          <ion-note item-end>
+            {{ entidade.tipo }}
+          </ion-note>
         </ion-item>
       </ion-list>
     </div>

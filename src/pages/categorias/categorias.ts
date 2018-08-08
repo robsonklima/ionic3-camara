@@ -3,10 +3,10 @@ import { LoadingController } from 'ionic-angular';
 import { SessaoService } from '../../services/sessao';
 
 @Component({
-  templateUrl: 'comparecimentos.html'
+  templateUrl: 'categorias.html'
 })
-export class ComparecimentosPage {
-  comparecimentos: any[] = []
+export class CategoriasPage {
+  categorias: any[] = []
 
   constructor(
     private loadingCtrl: LoadingController,
@@ -20,7 +20,7 @@ export class ComparecimentosPage {
     loader.present();
 
     setTimeout(() => {
-      this.getComparecimentos().then(() => {
+      this.getCategorias().then(() => {
         loader.dismiss();
       }, e => {
         loader.dismiss();
@@ -28,10 +28,10 @@ export class ComparecimentosPage {
     }, 1000);
   }
 
-  getComparecimentos(): Promise<any[]> {
+  getCategorias(): Promise<any[]> {
     return new Promise((resolve, reject) => {
-      this.sessaoService.getComparecimentos().subscribe((c) => { 
-        this.comparecimentos = c;
+      this.sessaoService.getCategorias().subscribe((c) => { 
+        this.categorias = c;
 
         resolve(c);
       }, e => {
@@ -40,13 +40,13 @@ export class ComparecimentosPage {
     });
   }
 
-  filterComparecimentos(ev: any) {
-    this.getComparecimentos().then(() => {
+  filterCategorias(ev: any) {
+    this.getCategorias().then(() => {
       const val = ev.target.value;
 
       if (val && val.trim() != '') {
-        this.comparecimentos = this.comparecimentos.filter((c) => {
-          return (c.vereador.toLowerCase().indexOf(val.toLowerCase()) > -1);
+        this.categorias = this.categorias.filter((c) => {
+          return (c.categoria.toLowerCase().indexOf(val.toLowerCase()) > -1);
         })
       }
     });

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Categorias
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="silver-bg">
+  <ion-list>
+    <ion-searchbar (ionInput)="filterCategorias($event)"></ion-searchbar>
+
+    <ion-item *ngFor="let categoria of categorias">
+      <h4>{{ categoria.categoria }}</h4>
+      <p>
+        Sessões: {{ categoria.contagem }}
+      </p>
+    </ion-item>
+
+    <ion-item *ngIf="categorias.length == 0">
+      Nenhum registro encontrado
+    </ion-item>
+  </ion-list>
+</ion-content>
