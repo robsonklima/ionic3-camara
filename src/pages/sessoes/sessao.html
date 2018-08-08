@@ -77,7 +77,7 @@
           Nenhuma categoria
         </ion-item>
 
-        <ion-item *ngFor="let categoria of sessao?.categorias">
+        <ion-item text-wrap *ngFor="let categoria of sessao?.categorias">
           <h4>{{ categoria.nome }}</h4>
           <p>Acuracidade: {{ categoria.confianca }}</p>
         </ion-item>

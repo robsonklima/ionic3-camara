@@ -39,7 +39,7 @@
         Nenhum registro
       </ion-item>
 
-      <ion-item *ngFor="let tendencia of tendencias">
+      <ion-item text-wrap *ngFor="let tendencia of tendencias">
         <h4>{{ tendencia.categorias[0] }}</h4>
         <p>
           Votou a favor de {{ tendencia.contagem }} {{ (tendencia.contagem == 1) ? "sessão" : "sessões" }} 

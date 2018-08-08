@@ -10,7 +10,7 @@
   <ion-list>
     <ion-searchbar (ionInput)="filterCategorias($event)"></ion-searchbar>
 
-    <ion-item *ngFor="let categoria of categorias">
+    <ion-item text-wrap *ngFor="let categoria of categorias">
       <h4>{{ categoria.categoria }}</h4>
       <p>
         Sessões: {{ categoria.contagem }}
