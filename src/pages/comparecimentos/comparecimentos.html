@@ -16,9 +16,12 @@
         Presenças: {{ comparecimento.presencas }} &#8226; 
         Ausências: {{ comparecimento.ausencias }}
       </p>
-      <ion-note item-end>
+      <ion-badge item-end
+          [ngClass]="{'red-bg': comparecimento.percentual >= 90.01, 
+            'orange-bg': (comparecimento.percentual > 50.01 && comparecimento.percentual < 90),
+            'green-bg': (comparecimento.percentual < 50)}">
           {{ comparecimento.percentual }}%
-      </ion-note>
+        </ion-badge>
     </ion-item>
 
     <ion-item *ngIf="comparecimentos.length == 0">
