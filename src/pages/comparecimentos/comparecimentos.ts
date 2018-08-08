@@ -35,7 +35,7 @@ export class ComparecimentosPage {
 
       if (val && val.trim() != '') {
         this.comparecimentos = this.comparecimentos.filter((c) => {
-          return (c.vereador.vereador.toLowerCase().indexOf(val.toLowerCase()) > -1);
+          return (c.vereador.toLowerCase().indexOf(val.toLowerCase()) > -1);
         })
       }
     });

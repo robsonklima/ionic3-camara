@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Sessões
+      Comparecimentos
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -16,6 +16,9 @@
         Presenças: {{ comparecimento.presencas }} &#8226; 
         Ausências: {{ comparecimento.ausencias }}
       </p>
+      <ion-note item-end>
+          {{ comparecimento.percentual }}%
+      </ion-note>
     </ion-item>
 
     <ion-item *ngIf="comparecimentos.length == 0">
