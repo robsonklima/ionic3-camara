@@ -13,7 +13,7 @@ export class ComparecimentosPage {
     private sessaoService: SessaoService,
   ) {}
 
-  ionViewDidEnter() {
+  ionViewDidLoad() {
     const loader = this.loadingCtrl.create({
       content: 'Carregando...'
     });
