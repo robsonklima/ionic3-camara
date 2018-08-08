@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 import { Sessao } from '../../models/sessao';
 import { SessaoService } from '../../services/sessao';
 import { SessaoPage } from './sessao';
@@ -11,12 +11,24 @@ export class SessoesPage {
   sessoes: Sessao[] = []
 
   constructor(
+    private loadingCtrl: LoadingController,
     private navCtrl: NavController,
     private sessaoService: SessaoService,
   ) {}
 
   ionViewDidEnter() {
-    this.getSessoes();
+    const loader = this.loadingCtrl.create({
+      content: 'Carregando...'
+    });
+    loader.present();
+
+    setTimeout(() => {
+      this.getSessoes().then(() => {
+        loader.dismiss();
+      }, e => {
+        loader.dismiss();
+      });
+    }, 1000);
   }
 
   onLoadSessao(id: string) {

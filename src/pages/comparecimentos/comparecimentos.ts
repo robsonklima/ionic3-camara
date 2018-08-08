@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 import { SessaoService } from '../../services/sessao';
 
 @Component({
@@ -9,12 +9,23 @@ export class ComparecimentosPage {
   comparecimentos: any[] = []
 
   constructor(
-    private navCtrl: NavController,
+    private loadingCtrl: LoadingController,
     private sessaoService: SessaoService,
   ) {}
 
   ionViewDidEnter() {
-    this.getComparecimentos();
+    const loader = this.loadingCtrl.create({
+      content: 'Carregando...'
+    });
+    loader.present();
+
+    setTimeout(() => {
+      this.getComparecimentos().then(() => {
+        loader.dismiss();
+      }, e => {
+        loader.dismiss();
+      });
+    }, 1000);
   }
 
   getComparecimentos(): Promise<any[]> {

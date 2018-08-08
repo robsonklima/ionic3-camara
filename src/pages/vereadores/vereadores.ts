@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 
 import { Vereador } from '../../models/vereador';
 import { VereadorPage } from './vereador';
@@ -12,12 +12,24 @@ export class VereadoresPage {
   vereadores: Vereador[] = []
 
   constructor(
+    private loadingCtrl: LoadingController,
     private navCtrl: NavController,
     private sessaoService: SessaoService
   ) {}
 
   ionViewDidLoad() {
-    this.getVereadores();
+    const loader = this.loadingCtrl.create({
+      content: 'Carregando...'
+    });
+    loader.present();
+
+    setTimeout(() => {
+      this.getVereadores().then(() => {
+        loader.dismiss();
+      }, e => {
+        loader.dismiss();
+      });
+    }, 1000);
   }
 
   onLoadVereador(vereador: Vereador) {
